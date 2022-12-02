@@ -1,7 +1,9 @@
+import Login from "./pages/Login";
+
 function App() {
   return (
     <>
-      <div>회원가입 기능 구현중..</div>
+      <Login></Login>
     </>
   );
 }
