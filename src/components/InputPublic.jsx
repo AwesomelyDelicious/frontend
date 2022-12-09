@@ -1,15 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
-function InputPublic() {
+function InputPublic(props) {
   return (
     <div>
       <div>
-        <input
-          type="text"
-          placeholder="ID"
-          class="border-solid border-2"
-          value="ID"
-        />
+        <input type="text" class="border-solid border-2" />
       </div>
     </div>
   );
