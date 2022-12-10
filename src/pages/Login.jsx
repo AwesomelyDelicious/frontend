@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import { useState } from "react";
 import Button from "../components/Button";
@@ -34,25 +33,3 @@ function Login(props) {
 }
 
 export default Login;
-=======
-import React, { useState } from "react";
-import Background from "../components/Background.jsx";
-
-import ModalButton from "../components/ModalButton.jsx";
-
-function Login(props) {
-
-    return (
-        <div>
-            <ModalButton></ModalButton>
-        </div>
-    );
-}
-
-export default Login;
-
-
-// onChange={(e) => {
-//     console.log(e.target.value);
-// }} 
->>>>>>> cc889869534c1a863afb0749be56ee01a75daa78
