@@ -7,8 +7,10 @@ import {
   KakaoMarkersRecoil,
   KakaoMapRecoil,
   KeywordRecoil,
+  ModalStateRecoil,
 } from "../../recoil/inputRecoil";
 import "./test.css";
+import AddListButton from "../AddListButton";
 
 const { kakao } = window;
 
@@ -17,9 +19,11 @@ function KakaoMap(props) {
   // const [markers, setMarkers] = useRecoilState(KakaoMarkersRecoil);
   // const [map, setMap] = useRecoilState(KakaoMapRecoil);
   const [keyword] = useRecoilState(KeywordRecoil);
-  const [info, setInfo] = useState();
-  const [markers, setMarkers] = useState([]);
-  const [map, setMap] = useState();
+  const [modal, setModal] = useRecoilState(ModalStateRecoil);
+
+  const [info, setInfo] = useRecoilState(KakaoInfoRecoil);
+  const [markers, setMarkers] = useRecoilState(KakaoMarkersRecoil);
+  const [map, setMap] = useState(KakaoMapRecoil);
 
   useEffect(() => {
     if (!map) return;
@@ -30,21 +34,25 @@ function KakaoMap(props) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
         const bounds = new kakao.maps.LatLngBounds();
-        let markers = [];
+        let markers1 = [];
 
-        for (var i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
           // @ts-ignore
-          markers.push({
+
+          markers1.push({
             position: {
               lat: data[i].y,
               lng: data[i].x,
             },
             content: data[i].place_name,
+            adress: data[i].address_name,
           });
+
           // @ts-ignore
           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
         }
-        setMarkers(markers);
+
+        setMarkers(markers1);
 
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
         map.setBounds(bounds);
@@ -70,12 +78,15 @@ function KakaoMap(props) {
           <MapMarker
             key={uuidv4()}
             position={marker.position}
-            onClick={() => setInfo(marker)}
+            onClick={() => {
+              setInfo(marker);
+              setModal(false);
+            }}
           >
             {info && info.content === marker.content && (
               <div className="p-3 test flex justify-between">
                 <div>{marker.content}</div>
-                <span>버튼클릭</span>
+                <AddListButton></AddListButton>
               </div>
             )}
           </MapMarker>

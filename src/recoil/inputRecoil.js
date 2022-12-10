@@ -11,7 +11,11 @@ export const KeywordRecoil = atom({
 
 export const KakaoInfoRecoil = atom({
   key: "KakaoInfoRecoil",
-  default: "",
+  default: {
+    content: "검색 안함",
+    position: { lat: 0, lng: 0 },
+    adress: "주소 아직",
+  },
 });
 
 export const KakaoMarkersRecoil = atom({
@@ -22,4 +26,14 @@ export const KakaoMarkersRecoil = atom({
 export const KakaoMapRecoil = atom({
   key: "KakaoMapRecoil",
   default: "",
+});
+
+export const AdressRecoil = atom({
+  key: "AdressRecoil",
+  default: "",
+});
+
+export const ModalStateRecoil = atom({
+  key: "ModalStateRecoil",
+  default: false,
 });

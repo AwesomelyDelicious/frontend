@@ -1,3 +1,4 @@
+import AddListModal from "./components/AddListModal/AddListModal";
 import KakaoMap from "./components/kakao/KakaoMap";
 import SearchBar from "./components/SearchBar";
 
@@ -7,6 +8,7 @@ function App() {
       <div>회원가입 기능 구현중..</div>
       <SearchBar></SearchBar>
       <KakaoMap></KakaoMap>
+      <AddListModal></AddListModal>
     </>
   );
 }
