@@ -9,7 +9,7 @@ function ModalButton(props) {
             <button class="w-14 h-14 rounded-full  bg-buttonBg" onClick={() => {
                 setModal(!modal);
             }}>버튼</button>
-            {modal == true ? <Background></Background> : null}
+            {modal === true ? <Background></Background> : null}
         </div>
     );
 }
