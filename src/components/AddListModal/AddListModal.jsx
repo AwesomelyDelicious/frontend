@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { KakaoInfoRecoil, ModalStateRecoil } from "../../recoil/inputRecoil";
 function AddListModal(props) {
@@ -7,7 +6,14 @@ function AddListModal(props) {
   const [modal, setModal] = useRecoilState(ModalStateRecoil);
   return (
     modal && (
-      <div className="flex flex-col justify-center items-center p-2 bg-slate-200 w-72 h-72">
+      <div className="absolute z-20 right-1 flex flex-col justify-center items-center p-2 bg-slate-200 w-72 h-72  ">
+        <button
+          onClick={() => {
+            setModal(false);
+          }}
+        >
+          닫기
+        </button>
         <div>찜하기</div>
         <section className="flex flex-col">
           <div>{info.content}</div>

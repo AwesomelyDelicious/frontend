@@ -16,9 +16,15 @@ function SearchBar(props) {
   };
 
   return (
-    <section>
-      <input onChange={onChange} type="text" name="search" value={title} />
-      <button onClick={onClick}>
+    <section className="absolute z-10 top-3 right-1/2  flex w-56">
+      <input
+        className="flex-grow  p-2"
+        onChange={onChange}
+        type="text"
+        name="search"
+        value={title}
+      />
+      <button className="bg-white pr-2" onClick={onClick}>
         <FaSearch></FaSearch>
       </button>
     </section>
