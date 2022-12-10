@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { RouterProvider } from "react-router-dom";
 import AddListModal from "./components/AddListModal/AddListModal";
 import KaKaoMapSection from "./components/kakao/KaKaoMapSection";
@@ -9,6 +10,14 @@ function App() {
       <RouterProvider router={router}></RouterProvider>
       <KaKaoMapSection></KaKaoMapSection>
       <MyStoreList></MyStoreList>
+=======
+import Login from "./pages/Login";
+
+function App() {
+  return (
+    <>
+      <Login></Login>
+>>>>>>> cc889869534c1a863afb0749be56ee01a75daa78
     </>
   );
 }
