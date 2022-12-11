@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
+import Logout from "../components/Logout";
 
 function Login(props) {
   let [inputs, setInputs] = useState({ id: "", password: "" });
@@ -28,6 +30,7 @@ function Login(props) {
         onChange={onChangeInput}
       />
       <Button inputs={inputs}></Button>
+      <Link to="/signUp"> 회원가입하러가기 </Link>
     </div>
   );
 }
