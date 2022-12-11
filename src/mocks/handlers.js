@@ -12,7 +12,7 @@ export const handlers = [
   rest.get("/api/v1/user?id=1", async (req, res, ctx) => {
     return res(
       ctx.json({
-        user: "유건",
+        email: "유건",
         nick_name: "keonYu",
         restaurant_list: [
           {

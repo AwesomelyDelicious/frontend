@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import Logout from "../components/Logout";
 
 function Login(props) {
   let [inputs, setInputs] = useState({ id: "", password: "" });

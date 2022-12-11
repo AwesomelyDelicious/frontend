@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { getUserRestaurant_list } from "../apis/apis";
+import React from "react";
 import Logout from "./Logout";
 import Store from "./Store";
 

@@ -48,7 +48,7 @@ export const UserIdRecoil = atom({
 export const UserInfoRecoil = atom({
   key: "UserInfoRecoil",
   default: {
-    user: "미정",
+    email: "미정",
     nick_name: "미정띠",
     restaurant_list: [],
   },

@@ -8,7 +8,7 @@ import { UserIdRecoil } from "../recoil/inputRecoil";
 function SignUp(props) {
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
   const [signInfo, setSignInfo] = useState({
-    userId: "",
+    email: "",
     nickname: "",
     password: "",
     password_re: "",
@@ -39,7 +39,7 @@ function SignUp(props) {
     postUserInfo();
 
     setSignInfo({
-      userId: "",
+      email: "",
       nickname: "",
       password: "",
       password_re: "",
@@ -51,12 +51,12 @@ function SignUp(props) {
   };
 
   return (
-    <div>
+    <div className="mt-14">
       <h1>SING UP</h1>
       <section>
         <CommonInput
-          value={signInfo.userId}
-          name="userId"
+          value={signInfo.email}
+          name="email"
           updateSignInfo={updateSignInfo}
         ></CommonInput>
         <CommonInput
