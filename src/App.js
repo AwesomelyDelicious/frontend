@@ -1,5 +1,4 @@
 import { RouterProvider } from "react-router-dom";
-import AddListModal from "./components/AddListModal/AddListModal";
 import KaKaoMapSection from "./components/kakao/KaKaoMapSection";
 import MyStoreList from "./components/MyStoreList";
 import router from "./router/router";

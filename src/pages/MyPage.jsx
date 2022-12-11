@@ -1,7 +1,11 @@
 import React from "react";
-
+import MyStoreList from "../components/MyStoreList";
 function MyPage(props) {
-  return <div>마이페이지 부분</div>;
+  return (
+    <div>
+      <MyStoreList></MyStoreList>
+    </div>
+  );
 }
 
 export default MyPage;

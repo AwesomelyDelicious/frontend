@@ -19,7 +19,7 @@ function KakaoMap(props) {
   // const [markers, setMarkers] = useRecoilState(KakaoMarkersRecoil);
   // const [map, setMap] = useRecoilState(KakaoMapRecoil);
   const [keyword] = useRecoilState(KeywordRecoil);
-  const [modal, setModal] = useRecoilState(ModalStateRecoil);
+  const [, setModal] = useRecoilState(ModalStateRecoil);
 
   const [info, setInfo] = useRecoilState(KakaoInfoRecoil);
   const [markers, setMarkers] = useRecoilState(KakaoMarkersRecoil);
