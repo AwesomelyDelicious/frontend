@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 
 function Login(props) {
@@ -28,7 +29,9 @@ function Login(props) {
         onChange={onChangeInput}
       />
       <Button inputs={inputs}></Button>
-      <h3 className="ml-16 underline underline-offset-2 text-textgray">회원이 아니신가요?</h3>
+      <Link to="/signUp">
+        <h3 className="ml-16 underline underline-offset-2 text-textgray">회원이 아니신가요?</h3>
+      </Link>
     </div>
   );
 }

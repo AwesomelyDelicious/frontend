@@ -15,6 +15,8 @@ export const KakaoInfoRecoil = atom({
     content: "검색 안함",
     position: { lat: 0, lng: 0 },
     adress: "주소 아직",
+    star: 0,
+    memo: "",
   },
 });
 
@@ -36,4 +38,18 @@ export const AdressRecoil = atom({
 export const ModalStateRecoil = atom({
   key: "ModalStateRecoil",
   default: false,
+});
+
+export const UserIdRecoil = atom({
+  key: "UserIdRecoil",
+  default: "",
+});
+
+export const UserInfoRecoil = atom({
+  key: "UserInfoRecoil",
+  default: {
+    email: "미정",
+    nickName: "미정띠",
+    restaurantList: [],
+  },
 });
