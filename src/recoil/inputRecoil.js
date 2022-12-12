@@ -49,7 +49,7 @@ export const UserInfoRecoil = atom({
   key: "UserInfoRecoil",
   default: {
     email: "미정",
-    nick_name: "미정띠",
-    restaurant_list: [],
+    nickName: "미정띠",
+    restaurantList: [],
   },
 });

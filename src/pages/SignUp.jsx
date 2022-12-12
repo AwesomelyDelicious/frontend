@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
+import { getUserRestaurant_list } from "../apis/apis";
 import CommonInput from "../components/common/CommonInput";
 import { UserIdRecoil } from "../recoil/inputRecoil";
 
@@ -47,7 +48,7 @@ function SignUp(props) {
 
     //회원가입 성공시
 
-    navigate("/myPage");
+    navigate("/mypage");
   };
 
   return (

@@ -13,10 +13,10 @@ export const handlers = [
     return res(
       ctx.json({
         email: "유건",
-        nick_name: "keonYu",
-        restaurant_list: [
+        nickName: "keonYu",
+        restaurantList: [
           {
-            restaurant_name: "육꼬",
+            restaurantName: "육꼬",
             x: "1251.31",
             y: "15123.24",
             id: "1",
@@ -24,7 +24,7 @@ export const handlers = [
             memo: "맛있어요",
           },
           {
-            restaurant_name: "롯데리아",
+            restaurantName: "롯데리아",
             x: "151.31",
             y: "123.24",
             id: "2",

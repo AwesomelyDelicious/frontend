@@ -4,7 +4,7 @@ function Store({ restaurant }) {
   return (
     <div className="flex">
       <div>아이콘--</div>
-      <div>{restaurant.restaurant_name}</div>
+      <div>{restaurant.restaurantName}</div>
     </div>
   );
 }
