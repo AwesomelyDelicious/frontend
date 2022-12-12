@@ -18,7 +18,7 @@ function Button(props) {
               }
             });
         }}
-        class="h-14 w-52 bg-buttonBg rounded-full"
+        className="h-12 w-40 bg-buttonBg rounded-full mt-6 ml-14"
       >
         로그인
       </button>
