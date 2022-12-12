@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 
 function Login(props) {
@@ -28,6 +29,7 @@ function Login(props) {
         onChange={onChangeInput}
       />
       <Button inputs={inputs}></Button>
+      <Link to="/signUp"> 회원가입하러가기 </Link>
     </div>
   );
 }

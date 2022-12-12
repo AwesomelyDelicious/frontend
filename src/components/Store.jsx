@@ -1,10 +1,10 @@
 import React from "react";
 
-function Store({ item }) {
+function Store({ restaurant }) {
   return (
     <div className="flex">
-      <div>아이콘</div>
-      <div>{item.name}</div>
+      <div>아이콘--</div>
+      <div>{restaurant.restaurantName}</div>
     </div>
   );
 }

@@ -19,7 +19,7 @@ function KakaoMap(props) {
   // const [markers, setMarkers] = useRecoilState(KakaoMarkersRecoil);
   // const [map, setMap] = useRecoilState(KakaoMapRecoil);
   const [keyword] = useRecoilState(KeywordRecoil);
-  const [modal, setModal] = useRecoilState(ModalStateRecoil);
+  const [, setModal] = useRecoilState(ModalStateRecoil);
 
   const [info, setInfo] = useRecoilState(KakaoInfoRecoil);
   const [markers, setMarkers] = useRecoilState(KakaoMarkersRecoil);
@@ -46,6 +46,9 @@ function KakaoMap(props) {
             },
             content: data[i].place_name,
             adress: data[i].address_name,
+            memo: "",
+            star: 0,
+            id: uuidv4(),
           });
 
           // @ts-ignore
@@ -58,7 +61,7 @@ function KakaoMap(props) {
         map.setBounds(bounds);
       }
     });
-  }, [map, keyword]);
+  }, [map, keyword, setMarkers]);
 
   return (
     <>
@@ -76,7 +79,7 @@ function KakaoMap(props) {
       >
         {markers.map((marker) => (
           <MapMarker
-            key={uuidv4()}
+            key={marker.id}
             position={marker.position}
             onClick={() => {
               setInfo(marker);

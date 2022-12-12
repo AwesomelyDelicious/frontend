@@ -1,17 +1,21 @@
 import React from "react";
-import { useState } from "react";
+import Logout from "./Logout";
 import Store from "./Store";
+import { v4 as uuidv4 } from "uuid";
 
-function MyStoreList(props) {
-  let [items, setItmes] = useState([{ name: "육꼬" }, { name: "시여사" }]);
-
+function MyStoreList({ userInfo }) {
+  // console.log("aaa");
+  // console.log(userRestaurantList);
   return (
-    <div>
+    <div className="mt-14">
+      <h1>{userInfo.nickName}님 어서오세요!</h1>
+      <div>맛집 리스트 목록</div>
       <ul>
-        {items.map((item) => (
-          <Store item={item}></Store>
+        {userInfo.restaurantList.map((restaurant) => (
+          <Store key={uuidv4()} restaurant={restaurant}></Store>
         ))}
       </ul>
+      <Logout></Logout>
     </div>
   );
 }
