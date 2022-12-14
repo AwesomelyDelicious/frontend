@@ -39,4 +39,13 @@ export const handlers = [
   rest.post("/api/v1/user/new", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ id: 1 }));
   }),
+
+  rest.get("/api/v1/authentication", (req, res, ctx) => {
+    return res(ctx.json({
+      id: "duswl", password: "1234"
+    }))
+  }),
+  rest.post("/api/v1/authentication", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ id: 1 }));
+  }),
 ];
