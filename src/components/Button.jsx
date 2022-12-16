@@ -11,16 +11,18 @@ function Button(props) {
           axios
             .post(
               "/api/v1/authentication", {
-              id: "", password: ""
+              email: props.inputs.email, password: "1234"
             }
             )
             .then((respone) => {
               if (respone.status === 200) {
                 navigate('/myPage');
-              } else {
-                navigate("/");
               }
-            });
+            }
+            )
+            .catch((error) => {
+              navigate('/');
+            })
         }}
         className="h-12 w-40 bg-buttonBg rounded-full mt-6 ml-14"
       >

@@ -40,12 +40,30 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ id: 1 }));
   }),
 
-  rest.get("/api/v1/authentication", (req, res, ctx) => {
-    return res(ctx.json({
-      id: "duswl", password: "1234"
-    }))
-  }),
-  rest.post("/api/v1/authentication", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ id: 1 }));
-  }),
+  // rest.get("/api/v1/authentication", (req, res, ctx) => {
+  //   ctx.json((
+  //     id: "duswl",
+  //     password: "1234",
+  //   ))
+  // })
+
+  // rest.post("/api/v1/authentication", (req, res, ctx) => {
+  //   if (!ctx.status(200)) {
+  //     return res(
+  //       ctx.status(404),
+  //       ctx.json({
+  //         errorMessage: 'Not authenticated',
+  //       }),
+  //     )
+  //   }
+  //   return res(ctx.status(200), ctx.json({ id: 1 }))
+  // }),
+  rest.post("/api/v1/authentiaction", (req, res, ctx) => {
+    return res(
+      ctx.json({
+        id: "duswl", password: "1234"
+      }),
+      ctx.json({ id: 1 })
+    )
+  })
 ];
