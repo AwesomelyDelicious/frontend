@@ -1,7 +1,7 @@
 // src/mocks/handlers.js
 import { rest } from "msw";
 
-let userInfo = [
+let usersInfo = [
   { email: "duswl", password: "123" },
   { email: "yeonji", password: "1234" },
 ];
@@ -43,6 +43,18 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ id: 1 }));
   }),
   rest.post("/api/v1/authentication", (req, res, ctx) => {
-    console.log(req.body);
+    let { email, password } = req.body;
+
+    for (let i in usersInfo) {
+      if (email === usersInfo[i].email && password === usersInfo[i].password) {
+        return res(
+          ctx.status(200), ctx.json({ id: 1 })
+        )
+      } else {
+        return res(
+          ctx.status(404),
+        )
+      }
+    }
   }),
 ];

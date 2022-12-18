@@ -11,7 +11,7 @@ function Button(props) {
           axios
             .post(
               "/api/v1/authentication", {
-              email: props.inputs.email, password: "1234"
+              email: props.inputs.email, password: props.inputs.password
             }
             )
             .then((respone) => {
@@ -21,6 +21,7 @@ function Button(props) {
             }
             )
             .catch((error) => {
+              alert('일치하지 않습니다.');
               navigate('/');
             })
         }}
