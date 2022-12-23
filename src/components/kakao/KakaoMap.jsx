@@ -9,7 +9,6 @@ import {
   KeywordRecoil,
   ModalStateRecoil,
 } from "../../recoil/inputRecoil";
-import "./test.css";
 import AddListButton from "../AddListButton";
 
 const { kakao } = window;
@@ -72,7 +71,7 @@ function KakaoMap(props) {
         }}
         style={{
           width: "100%",
-          height: "350px",
+          height: "100vh",
         }}
         level={3}
         onCreate={setMap}

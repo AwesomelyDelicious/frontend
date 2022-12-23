@@ -52,9 +52,9 @@ function SignUp(props) {
   };
 
   return (
-    <div className="mt-14">
-      <h1>SING UP</h1>
-      <section>
+    <div className="flex h-full justify-center items-center flex-col selection:mt-14">
+      <h1 className="pb-6">SING UP</h1>
+      <section className="">
         <CommonInput
           value={signInfo.email}
           name="email"
@@ -76,7 +76,9 @@ function SignUp(props) {
           updateSignInfo={updateSignInfo}
         ></CommonInput>
       </section>
-      <button onClick={postInfo}>회원가입</button>
+      <button className="mt-3 text-xl" onClick={postInfo}>
+        회원가입
+      </button>
     </div>
   );
 }

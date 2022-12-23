@@ -40,6 +40,23 @@ export const ModalStateRecoil = atom({
   default: false,
 });
 
+export const ClickUserListInfo = atom({
+  key: "ClickUserListInfo",
+  default: {
+    restaurant_name: "",
+    x: "",
+    y: "",
+    id: "",
+    star_count: 0,
+    memo: "",
+  },
+});
+
+export const ClickModalStateRecoil = atom({
+  key: "ClickModalStateRecoil",
+  default: false,
+});
+
 export const UserIdRecoil = atom({
   key: "UserIdRecoil",
   default: "",
@@ -49,7 +66,7 @@ export const UserInfoRecoil = atom({
   key: "UserInfoRecoil",
   default: {
     email: "미정",
-    nickName: "미정띠",
-    restaurantList: [],
+    nick_name: "미정띠",
+    restaurant_list: [],
   },
 });
