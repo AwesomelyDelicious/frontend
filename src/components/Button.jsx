@@ -1,24 +1,31 @@
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Button(props) {
+  const navigate = useNavigate();
   return (
     <div>
       <button
         onClick={() => {
           axios
-            .get(
-              "https://gist.githubusercontent.com/wisdomyeon/12b92d5029678ac253a6b9c3268dba54/raw/7019daef49b6aace0fbe4c49213bb7c67db0e07c/MiniProject_login.json"
+            .post(
+              "/api/v1/authentication", {
+              email: props.inputs.email, password: props.inputs.password
+            }
             )
             .then((respone) => {
               if (respone.status === 200) {
-                console.log("로그인 성공");
-              } else {
-                console.log("실패");
+                navigate('/myPage');
               }
-            });
+            }
+            )
+            .catch((error) => {
+              alert('일치하지 않습니다.');
+              navigate('/');
+            })
         }}
-        class="h-14 w-52 bg-buttonBg rounded-full"
+        className="h-12 w-40 bg-buttonBg rounded-full mt-6 ml-14"
       >
         로그인
       </button>

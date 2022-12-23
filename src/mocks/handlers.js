@@ -1,7 +1,10 @@
 // src/mocks/handlers.js
 import { rest } from "msw";
 
-let db = [];
+let usersInfo = [
+  { email: "duswl", password: "123" },
+  { email: "yeonji", password: "1234" },
+];
 
 export const handlers = [
   //   // Handles a POST /login request
@@ -38,5 +41,20 @@ export const handlers = [
 
   rest.post("/api/v1/user/new", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ id: 1 }));
+  }),
+  rest.post("/api/v1/authentication", (req, res, ctx) => {
+    let { email, password } = req.body;
+
+    for (let i in usersInfo) {
+      if (email === usersInfo[i].email && password === usersInfo[i].password) {
+        return res(
+          ctx.status(200), ctx.json({ id: 1 })
+        )
+      } else {
+        return res(
+          ctx.status(404),
+        )
+      }
+    }
   }),
 ];
