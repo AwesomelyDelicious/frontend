@@ -11,7 +11,7 @@ function Root(props) {
     <div className="relative">
       <MainModalButton changeModal={changeModal}></MainModalButton>
       {modal && (
-        <div className="flex flex-col w-72 h-96 bg-yellow-200">
+        <div className="absolute z-10 flex flex-col w-72 h-96 bg-yellow-200">
           <Outlet></Outlet>
         </div>
       )}

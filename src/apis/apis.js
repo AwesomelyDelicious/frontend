@@ -8,9 +8,26 @@ export const getUserRestaurant_list = async () => {
   return userInfo;
 };
 
+export const postUserInfo = async (newRestaurant) => {
+  await axios
+    .post("/api/v1/restaurant", newRestaurant)
+    .then((res) => console.log(res));
+};
+
+export const deleteUserList = async (restaurantId) => {
+  await axios
+    .delete(`/api/v1/restaurant/${restaurantId}`)
+    .then((res) => console.log(res));
+};
+export const updateUserList = async (restaurantId, info) => {
+  await axios
+    .patch(`/api/v1/restaurant/${restaurantId}`, info)
+    .then((res) => console.log(res));
+};
+
 //3번째 방법  MyPage 컴포넌트 참고
 export const getUserInfo = async (userId) => {
-  let data = await axios.get(`/api/v1/user?id=${userId}`).then((res) => {
+  let data = await axios.get(`/api/v1/${userId}`).then((res) => {
     return res.data;
   });
 

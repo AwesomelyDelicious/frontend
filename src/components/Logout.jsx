@@ -11,7 +11,11 @@ function Logout(props) {
   const reset = () => {
     navigate("/");
   };
-  return <div onClick={reset}>로그아웃</div>;
+  return (
+    <div className="text-sm mt-3" onClick={reset}>
+      로그아웃 하기
+    </div>
+  );
 }
 
 export default Logout;
