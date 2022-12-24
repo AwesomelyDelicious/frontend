@@ -7,7 +7,9 @@ import { UserIdRecoil } from "../recoil/inputRecoil";
 
 function Button(props) {
   const navigate = useNavigate();
+
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
+
   return (
     <div>
       <button
@@ -19,7 +21,8 @@ function Button(props) {
                 password: props.inputs.password,
               })
               .then((respone) => {
-                console.log(respone);
+                console.log(respone.data.id);
+                setUserId(respone.data.id);
                 if (respone.status === 200) {
                   navigate("/myPage");
                 }
