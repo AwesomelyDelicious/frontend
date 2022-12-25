@@ -12,8 +12,8 @@ function Login(props) {
     console.log(inputs);
   };
   return (
-    <div className="flex h-full justify-center items-center flex-col">
-      <h1 className="pb-6 font-bold text-5xl">LOGIN</h1>
+    <div className="flex h-[80%] justify-center items-center flex-col">
+      <h1 className="pb-6 font-bold text-5xl mb-[85px]">LOGIN</h1>
       <section className="">
         <CommonInput
           type="text"
@@ -29,7 +29,7 @@ function Login(props) {
         ></CommonInput>
         <Button inputs={inputs}></Button>
         <Link to="/signUp">
-          <h3 className="mt-2 text-center underline underline-offset-2 text-textgray">회원이 아니신가요?</h3>
+          <h3 className="mt-4 text-center underline underline-offset-2 text-textgray">회원이 아니신가요?</h3>
         </Link>
       </section>
     </div >

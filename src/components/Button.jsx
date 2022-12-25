@@ -10,32 +10,30 @@ function Button(props) {
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
 
   return (
-    <div className="place-content-around">
-      <div className="h-12 w-40 mt-6 bg-buttonBg rounded-full"
-        onClick={() => {
-          (async () => {
-            await axios
-              .post("/api/v1/authentication", {
-                email: props.inputs.email,
-                password: props.inputs.password,
-              })
-              .then((respone) => {
-                console.log(respone.data.id);
-                setUserId(respone.data.id);
-                if (respone.status === 200) {
-                  navigate("/myPage");
-                }
-              })
-              .catch((error) => {
-                alert("일치하지 않습니다.");
-                navigate("/");
-              });
-          })();
-        }}
-      >
-        <span className="">로그인</span>
-      </div>
-    </div>
+    <button className="h-12 w-40 mt-12 ml-24 bg-buttonBg rounded-full shadow-lg grid place-items-center"
+      onClick={() => {
+        (async () => {
+          await axios
+            .post("/api/v1/authentication", {
+              email: props.inputs.email,
+              password: props.inputs.password,
+            })
+            .then((respone) => {
+              console.log(respone.data.id);
+              setUserId(respone.data.id);
+              if (respone.status === 200) {
+                navigate("/myPage");
+              }
+            })
+            .catch((error) => {
+              alert("일치하지 않습니다.");
+              navigate("/");
+            });
+        })();
+      }}
+    >
+      <span>로그인</span>
+    </button>
   );
 }
 
