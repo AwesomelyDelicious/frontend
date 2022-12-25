@@ -17,10 +17,12 @@ function Store({ restaurant }) {
 
   return (
     <div onClick={onClick} className="flex">
-      <button className="text-2xl text-orange-600">
-        <MdOutlineBookmarkAdd></MdOutlineBookmarkAdd>
+      <button className="relative">
+        <MdOutlineBookmarkAdd className="absolute z-40 w-8 h-8 mt-2 ml-2 text-orange-600"></MdOutlineBookmarkAdd>
+
+        <div className="h-[45px] w-[350px] pl-3 pt-2 mb-[20px] border-solid border-2 rounded-2xl shadow-lg bg-white text-center font-bold align-middle hover:border-orange-600">{restaurant.restaurant_name}
+        </div>
       </button>
-      <div>{restaurant.restaurant_name}</div>
     </div>
   );
 }

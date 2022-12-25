@@ -12,7 +12,7 @@ function Logout(props) {
     navigate("/");
   };
   return (
-    <div className="text-sm mt-3" onClick={reset}>
+    <div className="mt-4 text-center underline underline-offset-2 text-textgray" onClick={reset}>
       로그아웃 하기
     </div>
   );
