@@ -1,14 +1,14 @@
 import React from "react";
-import { BsFillSkipStartFill, BsFillSkipEndFill } from "react-icons/bs";
+import { TfiAngleDoubleRight } from "react-icons/tfi";
 
 function MainModalButton({ changeModal, modal }) {
   return (
     <button
-      className={`absolute z-40 w-14 h-14 rounded-full  top-[30px] ${modal ? "left-[420px]" : "left-[20px]"
+      className={`absolute z-40 w-14 h-14 rounded-full top-[30px] ${modal ? "left-[420px]" : "left-[20px]"
         }   bg-buttonBg`}
       onClick={changeModal}
     >
-      <BsFillSkipStartFill className="w-full h-12"></BsFillSkipStartFill>
+      <TfiAngleDoubleRight className="w-16 h-8"></TfiAngleDoubleRight>
     </button>
   );
 }

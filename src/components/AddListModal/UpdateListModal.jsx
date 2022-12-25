@@ -7,6 +7,7 @@ import {
   UserIdRecoil,
   UserInfoRecoil,
 } from "../../recoil/inputRecoil";
+import { HiXMark } from "react-icons/hi2";
 
 function UpdateListModal(props) {
   const [modal, setModal] = useRecoilState(ClickModalStateRecoil);
@@ -37,24 +38,23 @@ function UpdateListModal(props) {
 
   return (
     modal && (
-      <div className="absolute bottom-1/2  z-20 left-1/2 flex flex-col justify-center items-center p-2 bg-slate-200 w-72 h-72  ">
+      <div className="absolute bottom-1/2  z-20 left-1/2 flex flex-col justify-center items-center p-2 bg-white w-[300px] h-[380px] shadow-lg ">
         <button
-          className="bg-red-200 text-sm p-2"
+          className="text-lg p-2 bg-red-200 "
           onClick={() => {
             setModal(false);
           }}
         >
-          닫기
+          <HiXMark></HiXMark>
         </button>
         <div className="text-lg font-bold mt-2">수정 / 삭제</div>
         <section className="flex flex-col">
-          <div>{info.restaurant_name}</div>
-
+          <div className="h-10 w-12 p-1 rounded-xl border-red-700">{info.restaurant_name}</div>
           <div>{info.star}</div>
         </section>
         <section className="flex flex-col">
           <input
-            className="p-2"
+            className=" h-40 text-center rounded-xl bg-slate-50"
             onChange={(e) => {
               setInfo({ ...info, memo: e.target.value });
             }}
@@ -64,10 +64,10 @@ function UpdateListModal(props) {
           />
         </section>
         <div className="flex mt-3">
-          <button className="mr-2 p-2 bg-blue-500" onClick={updateList}>
+          <button className="mr-2 p-2 text-white bg-blue-500" onClick={updateList}>
             수정
           </button>
-          <button className="ml-2 p-2 bg-red-500" onClick={deleteList}>
+          <button className="ml-2 p-2 text-white bg-red-500" onClick={deleteList}>
             삭제
           </button>
         </div>
