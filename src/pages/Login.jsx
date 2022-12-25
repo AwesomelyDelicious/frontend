@@ -13,7 +13,7 @@ function Login(props) {
   };
   return (
     <div className="flex h-[80%] justify-center items-center flex-col">
-      <h1 className="pb-6 font-bold text-5xl mb-[85px]">LOGIN</h1>
+      <h1 className="pb-6 font-bold text-5xl mb-[80px]">LOGIN</h1>
       <section className="grid place-items-center">
         <input className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg"
           type="text"

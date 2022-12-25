@@ -1,4 +1,5 @@
 import React from "react";
+import { BsFillSkipStartFill, BsFillSkipEndFill } from "react-icons/bs";
 
 function MainModalButton({ changeModal, modal }) {
   return (
@@ -7,7 +8,7 @@ function MainModalButton({ changeModal, modal }) {
         }   bg-buttonBg`}
       onClick={changeModal}
     >
-      ▶️
+      <BsFillSkipStartFill className="w-full h-12"></BsFillSkipStartFill>
     </button>
   );
 }
