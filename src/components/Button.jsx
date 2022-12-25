@@ -10,7 +10,7 @@ function Button(props) {
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
 
   return (
-    <button className="h-12 w-40 mt-12 ml-24 bg-buttonBg rounded-full shadow-lg grid place-items-center"
+    <button className="h-12 w-40 mt-10 bg-buttonBg rounded-full shadow-lg grid place-items-center"
       onClick={() => {
         (async () => {
           await axios

@@ -14,19 +14,21 @@ function Login(props) {
   return (
     <div className="flex h-[80%] justify-center items-center flex-col">
       <h1 className="pb-6 font-bold text-5xl mb-[85px]">LOGIN</h1>
-      <section className="">
-        <CommonInput
+      <section className="grid place-items-center">
+        <input className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg"
           type="text"
           name="email"
-          value={email}
+          placeholder="email"
+          value={setInputs.email}
           onChange={onChangeInput}>
-        </CommonInput>
-        <CommonInput
+        </input>
+        <input className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg"
           type="password"
           name="password"
-          value={password}
+          placeholder="password"
+          value={setInputs.password}
           onChange={onChangeInput}
-        ></CommonInput>
+        ></input>
         <Button inputs={inputs}></Button>
         <Link to="/signUp">
           <h3 className="mt-4 text-center underline underline-offset-2 text-textgray">회원이 아니신가요?</h3>
