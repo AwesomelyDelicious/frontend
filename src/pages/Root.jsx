@@ -14,7 +14,7 @@ function Root(props) {
         changeModal={changeModal}
       ></MainModalButton>
       {modal && (
-        <div className="absolute z-10 flex flex-col w-72 h-96 bg-yellow-200">
+        <div className="absolute z-10 flex flex-col w-[500px] h-[1024px] bg-yellow-200">
           <Outlet></Outlet>
         </div>
       )}

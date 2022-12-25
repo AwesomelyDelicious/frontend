@@ -76,7 +76,7 @@ function SignUp(props) {
           updateSignInfo={updateSignInfo}
         ></CommonInput>
       </section>
-      <button className="mt-3 text-xl" onClick={postInfo}>
+      <button className="h-12 w-40 bg-buttonBg rounded-full mt-6" onClick={postInfo}>
         회원가입
       </button>
     </div>

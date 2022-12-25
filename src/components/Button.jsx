@@ -10,8 +10,8 @@ function Button(props) {
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
 
   return (
-    <div>
-      <button
+    <div className="place-content-around">
+      <div className="h-12 w-40 mt-6 bg-buttonBg rounded-full"
         onClick={() => {
           (async () => {
             await axios
@@ -32,13 +32,11 @@ function Button(props) {
               });
           })();
         }}
-        className="h-12 w-40 bg-buttonBg rounded-full mt-6 ml-14"
       >
-        로그인
-      </button>
+        <span className="">로그인</span>
+      </div>
     </div>
   );
 }
 
 export default Button;
-//   props.inputs = true ? navigate(/*"/list페이지 삽입"* : 로그인페이지 화면 띄우기/);
