@@ -7,17 +7,20 @@ function MyStoreList({ userInfo }) {
   // console.log("aaa");
   // console.log(userRestaurantList);
   return (
-    <div className="h-[180%] flex justify-center items-center flex-col">
-      <h1 className="pb-6 font-bold text-4xl mb-[80px]">
-        {userInfo.nick_name}님 어서오세요!
-      </h1>
-      <div className="text-s mb-4 pb-4 font-bold text-2xl ">맛집 리스트 목록</div>
-      <ul className="h-48 w-96 overflow-y-scroll overflow-hidden ">
-        {userInfo.restaurant_list.map((restaurant) => (
-          <Store key={uuidv4()} restaurant={restaurant}></Store>
-        ))}
-      </ul>
-      <Logout></Logout>
+    <div className="relative">
+      <div className="
+        translate-y-40 flex justify-center items-center flex-col">
+        <h1 className="pb-6 font-bold text-4xl mb-[80px]">
+          {userInfo.nick_name}님 어서오세요!
+        </h1>
+        <div className="text-s mb-4 pb-4 font-bold text-2xl ">맛집 리스트 목록</div>
+        <ul className="h-72 w-96 overflow-y-scroll ">
+          {userInfo.restaurant_list.map((restaurant) => (
+            <Store key={uuidv4()} restaurant={restaurant}></Store>
+          ))}
+        </ul>
+        <Logout></Logout>
+      </div>
     </div>
   );
 }

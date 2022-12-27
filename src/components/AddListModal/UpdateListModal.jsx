@@ -8,6 +8,7 @@ import {
   UserInfoRecoil,
 } from "../../recoil/inputRecoil";
 import { HiXMark } from "react-icons/hi2";
+import { FiStar } from "react-icons/fi";
 
 function UpdateListModal(props) {
   const [modal, setModal] = useRecoilState(ClickModalStateRecoil);
@@ -38,23 +39,24 @@ function UpdateListModal(props) {
 
   return (
     modal && (
-      <div className="absolute bottom-1/2  z-20 left-1/2 flex flex-col justify-center items-center p-2 bg-white w-[300px] h-[380px] shadow-lg ">
+      <div className="absolute bottom-1/2  z-20 left-1/2 flex flex-col justify-center items-center  bg-white w-[330px] h-[400px] shadow-lg ">
         <button
-          className="text-lg p-2 bg-red-200 "
+          className="text-lg p-2 float-right rounded-full bg-buttonBg"
           onClick={() => {
             setModal(false);
           }}
         >
           <HiXMark></HiXMark>
         </button>
-        <div className="text-lg font-bold mt-2">수정 / 삭제</div>
+        <div className="text-lg font-bold mt-1 mb-2">수정 / 삭제</div>
         <section className="flex flex-col">
-          <div className="h-10 w-12 p-1 rounded-xl border-red-700">{info.restaurant_name}</div>
-          <div>{info.star}</div>
-        </section>
-        <section className="flex flex-col">
+          <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">{info.restaurant_name}</div>
+          <div className="inline mb-[10px] bg-lime-500/50 shadow-md">
+            {info.star}
+            <FiStar></FiStar>
+          </div>
           <input
-            className=" h-40 text-center rounded-xl bg-slate-50"
+            className="h-24 border border-slate-300 text-center"
             onChange={(e) => {
               setInfo({ ...info, memo: e.target.value });
             }}
@@ -64,10 +66,10 @@ function UpdateListModal(props) {
           />
         </section>
         <div className="flex mt-3">
-          <button className="mr-2 p-2 text-white bg-blue-500" onClick={updateList}>
+          <button className="mr-2 p-2 rounded-2xl text-white bg-blue-500/75 shadow-md" onClick={updateList}>
             수정
           </button>
-          <button className="ml-2 p-2 text-white bg-red-500" onClick={deleteList}>
+          <button className="ml-2 p-2 rounded-2xl text-white bg-red-500/75 shadow-md" onClick={deleteList}>
             삭제
           </button>
         </div>
