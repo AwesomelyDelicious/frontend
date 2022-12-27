@@ -39,24 +39,28 @@ function UpdateListModal(props) {
 
   return (
     modal && (
-      <div className="absolute bottom-1/2  z-20 left-1/2 flex flex-col justify-center items-center  bg-white w-[330px] h-[400px] shadow-lg ">
+      <div className="absolute bottom-1/2 z-20 left-1/2 flex flex-col justify-center items-center  bg-white w-[330px] h-[400px] shadow-lg ">
         <button
           className="text-lg p-2 float-right rounded-full bg-buttonBg"
           onClick={() => {
             setModal(false);
           }}
         >
-          <HiXMark></HiXMark>
+          <HiXMark className="text-white"></HiXMark>
         </button>
         <div className="text-lg font-bold mt-1 mb-2">수정 / 삭제</div>
         <section className="flex flex-col">
           <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">{info.restaurant_name}</div>
-          <div className="inline mb-[10px] bg-lime-500/50 shadow-md">
+          <div className="grid grid-cols-5 p-2 mb-[10px] bg-lime-500/50 shadow-md">
             {info.star}
-            <FiStar></FiStar>
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
           </div>
           <input
-            className="h-24 border border-slate-300 text-center"
+            className="h-[100px] w-[280px] border border-slate-300 text-center"
             onChange={(e) => {
               setInfo({ ...info, memo: e.target.value });
             }}

@@ -8,7 +8,7 @@ function MainModalButton({ changeModal, modal }) {
         }   bg-buttonBg`}
       onClick={changeModal}
     >
-      <TfiAngleDoubleRight className="w-16 h-8"></TfiAngleDoubleRight>
+      <TfiAngleDoubleRight className="w-16 h-8 text-white"></TfiAngleDoubleRight>
     </button>
   );
 }

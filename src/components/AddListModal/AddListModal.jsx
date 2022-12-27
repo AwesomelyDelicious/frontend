@@ -50,21 +50,22 @@ function AddListModal(props) {
             setModal(false);
           }}
         >
-          <HiXMark></HiXMark>
+          <HiXMark className="text-white"></HiXMark>
         </button>
         <div className="text-lg font-bold mt-1 mb-2">찜하기</div>
-        <section className="h-50% w-60 flex flex-col justify-center items-center">
+        <section className="flex flex-col">
           <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">{info.content}</div>
           <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">{info.adress}</div>
-          <div className="inline mb-[10px] bg-lime-500/50 shadow-md">
-            <FiStar>{star}</FiStar>
-            <FiStar>{star}</FiStar>
-            <FiStar>{star}</FiStar>
+          <div className="grid grid-cols-5 p-2 mb-[10px] bg-lime-500/50 shadow-md">
+            {star}
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+            <div className="flex justify-center items-center flex-col"><FiStar /></div>
           </div>
-        </section>
-        <section className="flex flex-col">
           <input
-            className="h-[96px] w-[280px] border border-slate-300 text-center"
+            className="h-[100px] w-[280px] border border-slate-300 text-center"
             onChange={onChangeMemo}
             type="text"
             placeholder="메모"
