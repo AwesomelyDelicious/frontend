@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import React, { useEffect, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { useRecoilState } from "recoil";
+import { UserInfoRecoil } from "../../recoil/inputRecoil";
 import {
   KakaoInfoRecoil,
   KakaoMarkersRecoil,
@@ -23,6 +24,16 @@ function KakaoMap(props) {
   const [info, setInfo] = useRecoilState(KakaoInfoRecoil);
   const [markers, setMarkers] = useRecoilState(KakaoMarkersRecoil);
   const [map, setMap] = useState(KakaoMapRecoil);
+
+  const [userInfo, setUserInfo] = useRecoilState(UserInfoRecoil);
+  console.log("userInfo check");
+  console.log(userInfo);
+  const check = (x, y) => {
+    for (let info of userInfo.restaurant_list) {
+      if (info.x === x && info.y === y) return true;
+    }
+    return false;
+  };
 
   useEffect(() => {
     if (!map) return;
@@ -60,7 +71,7 @@ function KakaoMap(props) {
         map.setBounds(bounds);
       }
     });
-  }, [map, keyword, setMarkers]);
+  }, [map, keyword, setMarkers, userInfo]);
 
   return (
     <>
@@ -80,6 +91,23 @@ function KakaoMap(props) {
           <MapMarker
             key={marker.id}
             position={marker.position}
+            image={
+              check(marker.position.lat, marker.position.lng)
+                ? {
+                    src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png", // 마커이미지의 주소입니다
+                    size: {
+                      width: 64,
+                      height: 69,
+                    }, // 마커이미지의 크기입니다
+                    options: {
+                      offset: {
+                        x: 27,
+                        y: 69,
+                      }, // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+                    },
+                  }
+                : false
+            }
             onClick={() => {
               setInfo(marker);
               setModal(false);
