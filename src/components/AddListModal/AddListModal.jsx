@@ -9,14 +9,13 @@ import {
 import axios from "axios";
 import { getUserInfo, postUserInfo } from "../../apis/apis";
 import { HiXMark } from "react-icons/hi2";
-import { FiStar } from "react-icons/fi";
-
+import { IoIosStarOutline, IoIosStar } from "react-icons/io";
 
 function AddListModal(props) {
   const [info, setInfo] = useRecoilState(KakaoInfoRecoil);
   const [modal, setModal] = useRecoilState(ModalStateRecoil);
   const [memo, setMemo] = useState("");
-  const [star, setStar] = useState();
+  const [star, setStar] = useState([<IoIosStarOutline />, <IoIosStarOutline />, <IoIosStarOutline />, <IoIosStarOutline />, <IoIosStarOutline />]);
 
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
   const [userInfo, setUserInfo] = useRecoilState(UserInfoRecoil);
@@ -41,6 +40,12 @@ function AddListModal(props) {
     })();
   };
 
+  const starClick = (star) => {
+    for (let i in star) {
+      console.log(star[i]);
+    }
+  }
+
   return (
     modal && (
       <div className="absolute bottom-1/2  z-20 left-1/2 flex flex-col justify-center items-center  bg-white w-[330px] h-[400px] shadow-lg ">
@@ -56,13 +61,8 @@ function AddListModal(props) {
         <section className="flex flex-col">
           <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">{info.content}</div>
           <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">{info.adress}</div>
-          <div className="grid grid-cols-5 p-2 mb-[10px] bg-lime-500/50 shadow-md">
-            {star}
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+          <div className="grid grid-cols-1 grid-rows-1 p-2 mb-[10px] bg-lime-500/50 shadow-md">
+            <span onClick={starClick}>{star}</span>
           </div>
           <input
             className="h-[100px] w-[280px] border border-slate-300 text-center"
@@ -73,7 +73,6 @@ function AddListModal(props) {
           />
         </section>
         <button className="rounded-2xl text-white bg-blue-300 mt-3 p-2 " onClick={addList}>
-
           등록
         </button>
       </div>
