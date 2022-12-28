@@ -16,7 +16,7 @@ function Login(props) {
       <h1 className="pb-6 font-bold text-5xl mb-[80px]">LOGIN</h1>
       <section className="grid place-items-center">
         <input
-          className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg"
+          className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg outline-amber-400"
           type="email"
           name="email"
           placeholder="email"
@@ -24,7 +24,7 @@ function Login(props) {
           onChange={onChangeInput}
         ></input>
         <input
-          className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg"
+          className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg  outline-amber-400"
           type="password"
           name="password"
           placeholder="password"

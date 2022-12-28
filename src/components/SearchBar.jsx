@@ -18,7 +18,7 @@ function SearchBar(props) {
   return (
     <section className="absolute z-10 top-3 right-1/3 flex w-96">
       <input
-        className=" flex-grow p-2 justify-center items-center"
+        className=" flex-grow p-2 justify-center items-center outline-none"
         onChange={onChange}
         type="text"
         name="search"

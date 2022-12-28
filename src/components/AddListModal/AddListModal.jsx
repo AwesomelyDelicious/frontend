@@ -15,8 +15,7 @@ function AddListModal(props) {
   const [info, setInfo] = useRecoilState(KakaoInfoRecoil);
   const [modal, setModal] = useRecoilState(ModalStateRecoil);
   const [memo, setMemo] = useState("");
-  const [star, setStar] = useState();
-
+  const [star, setStar] = useState("");
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
   const [userInfo, setUserInfo] = useRecoilState(UserInfoRecoil);
 
@@ -42,6 +41,12 @@ function AddListModal(props) {
     setMemo("");
     setModal(false);
   };
+
+  const starClick = (star) => {
+    for (let i in star) {
+      console.log(star[i]);
+    }
+  }
 
   return (
     modal && (
@@ -69,29 +74,12 @@ function AddListModal(props) {
                   setStar(i + 1);
                 }}
                 key={i + 1}
-                className={`${
-                  i + 1 <= star ? "text-red-500" : false
-                } flex justify-center items-center flex-col`}
+                className={`${i + 1 <= star ? "text-red-500" : false
+                  } flex justify-center items-center flex-col`}
               >
                 <FiStar />
               </li>
             ))}
-
-            {/* <div className=" flex justify-center items-center flex-col">
-              <FiStar />
-            </div>
-            <div className="flex justify-center items-center flex-col">
-              <FiStar />
-            </div>
-            <div className="flex justify-center items-center flex-col">
-              <FiStar />
-            </div>
-            <div className="flex justify-center items-center flex-col">
-              <FiStar />
-            </div>
-            <div className="flex justify-center items-center flex-col">
-              <FiStar />
-            </div> */}
           </ul>
           <input
             className="h-[100px] w-[280px] border border-slate-300 text-center"
@@ -101,10 +89,7 @@ function AddListModal(props) {
             value={memo}
           />
         </section>
-        <button
-          className="rounded-2xl text-white bg-blue-300 mt-3 p-2 "
-          onClick={addList}
-        >
+        <button className="rounded-2xl text-white bg-blue-300 mt-3 p-2 " onClick={addList}>
           등록
         </button>
       </div>
