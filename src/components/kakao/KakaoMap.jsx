@@ -86,7 +86,7 @@ function KakaoMap(props) {
             }}
           >
             {info && info.content === marker.content && (
-              <div className="p-3 test flex justify-between">
+              <div className="w-48 p-2 test flex justify-center">
                 <div>{marker.content}</div>
                 <AddListButton></AddListButton>
               </div>

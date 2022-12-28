@@ -7,39 +7,34 @@ import { UserIdRecoil } from "../recoil/inputRecoil";
 
 function Button(props) {
   const navigate = useNavigate();
-
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          (async () => {
-            await axios
-              .post("/api/v1/authentication", {
-                email: props.inputs.email,
-                password: props.inputs.password,
-              })
-              .then((respone) => {
-                console.log(respone.data.id);
-                setUserId(respone.data.id);
-                if (respone.status === 200) {
-                  navigate("/myPage");
-                }
-              })
-              .catch((error) => {
-                alert("일치하지 않습니다.");
-                navigate("/");
-              });
-          })();
-        }}
-        className="h-12 w-40 bg-buttonBg rounded-full mt-6 ml-14"
-      >
-        로그인
-      </button>
-    </div>
+    <button className="h-12 w-40 mt-10 bg-buttonBg rounded-full shadow-lg grid place-items-center"
+      onClick={() => {
+        (async () => {
+          await axios
+            .post("/api/v1/authentication", {
+              email: props.inputs.email,
+              password: props.inputs.password,
+            })
+            .then((respone) => {
+              console.log(respone.data.id);
+              setUserId(respone.data.id);
+              if (respone.status === 200) {
+                navigate("/myPage");
+              }
+            })
+            .catch((error) => {
+              alert("일치하지 않습니다.");
+              navigate("/");
+            });
+        })();
+      }}
+    >
+      <span>로그인</span>
+    </button>
   );
 }
 
 export default Button;
-//   props.inputs = true ? navigate(/*"/list페이지 삽입"* : 로그인페이지 화면 띄우기/);

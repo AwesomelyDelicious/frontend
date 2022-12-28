@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
+import CommonInput from "../components/common/CommonInput";
 
 function Login(props) {
   let [inputs, setInputs] = useState({ email: "", password: "" });
@@ -11,28 +12,29 @@ function Login(props) {
     console.log(inputs);
   };
   return (
-    <div className="mt-32">
-      <input
-        type="text"
-        name="email"
-        value={email}
-        placeholder="이메일을 입력하세요"
-        className="border-solid border-2 ml-12 mb-1"
-        onChange={onChangeInput}
-      />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        placeholder="비밀번호를 입력하세요"
-        class="border-solid border-2 ml-12"
-        onChange={onChangeInput}
-      />
-      <Button inputs={inputs}></Button>
-      <Link to="/signUp">
-        <h3 className="ml-16 underline underline-offset-2 text-textgray">회원이 아니신가요?</h3>
-      </Link>
-    </div>
+    <div className="flex h-[80%] justify-center items-center flex-col">
+      <h1 className="pb-6 font-bold text-5xl mb-[80px]">LOGIN</h1>
+      <section className="grid place-items-center">
+        <input className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg"
+          type="text"
+          name="email"
+          placeholder="email"
+          value={setInputs.email}
+          onChange={onChangeInput}>
+        </input>
+        <input className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg"
+          type="password"
+          name="password"
+          placeholder="password"
+          value={setInputs.password}
+          onChange={onChangeInput}
+        ></input>
+        <Button inputs={inputs}></Button>
+        <Link to="/signUp">
+          <h3 className="mt-4 text-center underline underline-offset-2 text-textgray">회원이 아니신가요?</h3>
+        </Link>
+      </section>
+    </div >
   );
 }
 
