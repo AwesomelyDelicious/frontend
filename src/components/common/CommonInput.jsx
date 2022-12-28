@@ -4,7 +4,7 @@ function CommonInput({ value, name, updateSignInfo, type }) {
   return (
     <div className="mt-4">
       <input
-        className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg"
+        className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg outline-amber-400"
         onChange={updateSignInfo}
         type={type}
         name={name}
