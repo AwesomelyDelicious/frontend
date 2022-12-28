@@ -13,8 +13,8 @@ let userData = {
   restaurant_list: [
     {
       restaurant_name: "육꼬",
-      x: "1251.31",
-      y: "15123.24",
+      x: "37.3840928072388",
+      y: "126.933969384097",
       id: "1",
       star_count: "4.5",
       memo: "맛있어요",
@@ -53,6 +53,7 @@ export const handlers = [
     userData.restaurant_list = userData.restaurant_list.filter(
       (v) => v.id !== id
     );
+    console.log("파란색 나와라");
     console.log(userData);
     return res(ctx.status(200));
   }),

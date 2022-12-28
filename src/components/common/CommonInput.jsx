@@ -1,12 +1,12 @@
 import React from "react";
 
-function CommonInput({ value, name, updateSignInfo }) {
+function CommonInput({ value, name, updateSignInfo, type }) {
   return (
     <div className="mt-4">
       <input
         className="h-[45px] w-[350px] pl-3 pb-1 mb-[20px] border-solid border-2 rounded-2xl shadow-lg"
         onChange={updateSignInfo}
-        type="text"
+        type={type}
         name={name}
         id=""
         placeholder={name}
@@ -15,5 +15,9 @@ function CommonInput({ value, name, updateSignInfo }) {
     </div>
   );
 }
+
+CommonInput.defaultProps = {
+  type: "text",
+};
 
 export default CommonInput;

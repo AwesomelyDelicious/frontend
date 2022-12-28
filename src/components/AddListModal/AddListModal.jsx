@@ -11,7 +11,6 @@ import { getUserInfo, postUserInfo } from "../../apis/apis";
 import { HiXMark } from "react-icons/hi2";
 import { FiStar } from "react-icons/fi";
 
-
 function AddListModal(props) {
   const [info, setInfo] = useRecoilState(KakaoInfoRecoil);
   const [modal, setModal] = useRecoilState(ModalStateRecoil);
@@ -39,6 +38,9 @@ function AddListModal(props) {
       let a = await getUserInfo(userId);
       setUserInfo({ ...a });
     })();
+
+    setMemo("");
+    setModal(false);
   };
 
   return (
@@ -54,16 +56,43 @@ function AddListModal(props) {
         </button>
         <div className="text-lg font-bold mt-1 mb-2">찜하기</div>
         <section className="flex flex-col">
-          <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">{info.content}</div>
-          <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">{info.adress}</div>
-          <div className="grid grid-cols-5 p-2 mb-[10px] bg-lime-500/50 shadow-md">
-            {star}
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
-            <div className="flex justify-center items-center flex-col"><FiStar /></div>
+          <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">
+            {info.content}
           </div>
+          <div className="h-[30px] w-[280px] p-1 mb-[10px] rounded-2xl text-center bg-slate-50 shadow-md">
+            {info.adress}
+          </div>
+          <ul className="grid grid-cols-5 p-2 mb-[10px] bg-lime-500/50 shadow-md">
+            {[0, 0, 0, 0, 0].map((v, i) => (
+              <li
+                onClick={() => {
+                  setStar(i + 1);
+                }}
+                key={i + 1}
+                className={`${
+                  i + 1 <= star ? "text-red-500" : false
+                } flex justify-center items-center flex-col`}
+              >
+                <FiStar />
+              </li>
+            ))}
+
+            {/* <div className=" flex justify-center items-center flex-col">
+              <FiStar />
+            </div>
+            <div className="flex justify-center items-center flex-col">
+              <FiStar />
+            </div>
+            <div className="flex justify-center items-center flex-col">
+              <FiStar />
+            </div>
+            <div className="flex justify-center items-center flex-col">
+              <FiStar />
+            </div>
+            <div className="flex justify-center items-center flex-col">
+              <FiStar />
+            </div> */}
+          </ul>
           <input
             className="h-[100px] w-[280px] border border-slate-300 text-center"
             onChange={onChangeMemo}
@@ -72,8 +101,10 @@ function AddListModal(props) {
             value={memo}
           />
         </section>
-        <button className="rounded-2xl text-white bg-blue-300 mt-3 p-2 " onClick={addList}>
-
+        <button
+          className="rounded-2xl text-white bg-blue-300 mt-3 p-2 "
+          onClick={addList}
+        >
           등록
         </button>
       </div>

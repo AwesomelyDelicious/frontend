@@ -21,14 +21,13 @@ function SignUp(props) {
     let { name, value } = e.target;
 
     setSignInfo((prev) => ({ ...prev, [name]: value }));
-    console.log(signInfo);
   };
 
   const postInfo = () => {
     console.log(signInfo);
 
     async function postUserInfo() {
-      let data = await axios.post("/api/v1/user/new", signInfo).then((res) => {
+      let data = await axios.post("api/v1/user/new", signInfo).then((res) => {
         console.log("postUserInfo 함수 post 결과 :");
         console.log(res.data);
         setUserId(res.data.id);
@@ -53,9 +52,10 @@ function SignUp(props) {
 
   return (
     <div className="flex h-[80%] justify-center items-center flex-col selection:mt-14">
-      <h1 className="pb-6 font-bold text-5xl mb-[80px]">SING UP</h1>
+      <h1 className="pb-6 font-bold text-5xl mb-[80px]">SIGN UP</h1>
       <section className="">
         <CommonInput
+          type="email"
           value={signInfo.email}
           name="email"
           updateSignInfo={updateSignInfo}
@@ -66,17 +66,22 @@ function SignUp(props) {
           updateSignInfo={updateSignInfo}
         ></CommonInput>
         <CommonInput
+          type="password"
           value={signInfo.password}
           name="password"
           updateSignInfo={updateSignInfo}
         ></CommonInput>
         <CommonInput
+          type="password"
           value={signInfo.password_re}
           name="password_re"
           updateSignInfo={updateSignInfo}
         ></CommonInput>
       </section>
-      <button className="h-12 w-40 bg-buttonBg rounded-full mt-6" onClick={postInfo}>
+      <button
+        className="h-12 w-40 bg-buttonBg rounded-full mt-6"
+        onClick={postInfo}
+      >
         회원가입
       </button>
     </div>
