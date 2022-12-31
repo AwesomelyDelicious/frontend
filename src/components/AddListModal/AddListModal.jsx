@@ -46,7 +46,7 @@ function AddListModal(props) {
     for (let i in star) {
       console.log(star[i]);
     }
-  }
+  };
 
   return (
     modal && (
@@ -74,8 +74,9 @@ function AddListModal(props) {
                   setStar(i + 1);
                 }}
                 key={i + 1}
-                className={`${i + 1 <= star ? "text-red-500" : false
-                  } flex justify-center items-center flex-col`}
+                className={`${
+                  i + 1 <= star ? "text-red-500" : false
+                } flex justify-center items-center flex-col`}
               >
                 <FiStar />
               </li>
@@ -89,7 +90,10 @@ function AddListModal(props) {
             value={memo}
           />
         </section>
-        <button className="rounded-2xl text-white bg-blue-300 mt-3 p-2 " onClick={addList}>
+        <button
+          className="rounded-2xl text-white bg-blue-300 mt-3 p-2 "
+          onClick={addList}
+        >
           등록
         </button>
       </div>
