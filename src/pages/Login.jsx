@@ -12,7 +12,7 @@ function Login(props) {
     console.log(inputs);
   };
   return (
-    <div className="flex h-[80%] justify-center items-center flex-col">
+    <div className="flex h-[80%] mt-[35%] justify-center items-center flex-col">
       <h1 className="pb-6 font-bold text-5xl mb-[80px]">LOGIN</h1>
       <section className="grid place-items-center">
         <input

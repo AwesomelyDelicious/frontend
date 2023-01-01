@@ -14,7 +14,6 @@ function SignUp(props) {
     password: "",
     password_re: "",
   });
-
   const navigate = useNavigate();
 
   const updateSignInfo = (e) => {
@@ -45,9 +44,31 @@ function SignUp(props) {
 
     navigate("/mypage");
   };
+  //오류메세지
+  const [emailMessage, setEmailMessage] = useState('');
+
+  //유효성 검사
+  const [isEmail, setIsEmail] = useState(false);
+  const [isPassword, setIsPassword] = useState(false);
+  const [isPasswordRe, setIsPasswordRe] = useState(false);
+
+  //이벤트 조건(이메일)
+  const onChangeEmail = (e) => {
+    const emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    const emailCurrent = e.target.value;
+    setSignInfo(emailCurrent);
+
+    if (!emailRegex.test(emailCurrent)) {
+      setEmailMessage('이메일 형식이 틀렸쌈');
+      setIsEmail(false);
+    } else {
+      setEmailMessage('음쏘굿~');
+      setIsEmail(true);
+    }
+  }
 
   return (
-    <div className="flex h-[80%] justify-center items-center flex-col selection:mt-14">
+    <div className="flex h-[80%] mt-[35%] justify-center items-center flex-col selection:mt-14">
       <h1 className="pb-6 font-bold text-5xl mb-[80px]">SIGN UP</h1>
       <section className="">
         <CommonInput
@@ -55,7 +76,10 @@ function SignUp(props) {
           value={signInfo.email}
           name="email"
           updateSignInfo={updateSignInfo}
-        ></CommonInput>
+          onChange={onChangeEmail}
+        >
+          <span className={`message ${isEmail ? 'success' : 'error'}`}>{emailMessage}</span>
+        </CommonInput>
         <CommonInput
           value={signInfo.nickname}
           name="nickname"
