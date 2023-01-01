@@ -23,21 +23,17 @@ function SignUp(props) {
     setSignInfo((prev) => ({ ...prev, [name]: value }));
   };
 
-  const postInfo = () => {
+  async function postUserInfo() {
+    let res = await axios.post("api/v1/user/new", signInfo);
+
+    return res.data.id;
+  }
+
+  const postInfo = async () => {
     console.log(signInfo);
 
-    async function postUserInfo() {
-      let data = await axios.post("api/v1/user/new", signInfo).then((res) => {
-        console.log("postUserInfo 함수 post 결과 :");
-        console.log(res.data);
-        setUserId(res.data.id);
-        return res.data;
-      });
-
-      return data;
-    }
-    postUserInfo();
-
+    let id = await postUserInfo();
+    setUserId(id);
     setSignInfo({
       email: "",
       nickname: "",

@@ -15,7 +15,7 @@ function AddListModal(props) {
   const [info, setInfo] = useRecoilState(KakaoInfoRecoil);
   const [modal, setModal] = useRecoilState(ModalStateRecoil);
   const [memo, setMemo] = useState("");
-  const [star, setStar] = useState("");
+  const [star, setStar] = useState(0);
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
   const [userInfo, setUserInfo] = useRecoilState(UserInfoRecoil);
 
@@ -27,6 +27,7 @@ function AddListModal(props) {
     (async () => {
       await postUserInfo({
         restaurant_name: info.content,
+        restaurant_id: info.id,
         user_id: userId,
         x: info.position.lat,
         y: info.position.lng,
@@ -37,7 +38,7 @@ function AddListModal(props) {
       let a = await getUserInfo(userId);
       setUserInfo({ ...a });
     })();
-
+    setStar(0);
     setMemo("");
     setModal(false);
   };

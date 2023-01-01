@@ -25,12 +25,14 @@ function KakaoMap(props) {
   const [markers, setMarkers] = useRecoilState(KakaoMarkersRecoil);
   const [map, setMap] = useState(KakaoMapRecoil);
 
+  console.log(markers);
+
   const [userInfo, setUserInfo] = useRecoilState(UserInfoRecoil);
   console.log("userInfo check");
   console.log(userInfo);
-  const check = (x, y) => {
+  const check = (restaurant_id) => {
     for (let info of userInfo.restaurant_list) {
-      if (info.x === x && info.y === y) return true;
+      if (info.restaurant_id === restaurant_id) return true;
     }
     return false;
   };
@@ -48,17 +50,19 @@ function KakaoMap(props) {
 
         for (let i = 0; i < data.length; i++) {
           // @ts-ignore
-
+          console.log("marker 정보 확인");
+          console.log(data[i]);
           markers1.push({
             position: {
               lat: data[i].y,
               lng: data[i].x,
             },
+
             content: data[i].place_name,
             adress: data[i].address_name,
             memo: "",
             star: 0,
-            id: uuidv4(),
+            id: data[i].id,
           });
 
           // @ts-ignore
@@ -82,7 +86,7 @@ function KakaoMap(props) {
         }}
         style={{
           width: "100%",
-          height: "100vh",
+          minHeight: "100vh",
         }}
         level={3}
         onCreate={setMap}
@@ -92,7 +96,7 @@ function KakaoMap(props) {
             key={marker.id}
             position={marker.position}
             image={
-              check(marker.position.lat, marker.position.lng)
+              check(marker.id)
                 ? {
                     src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png", // 마커이미지의 주소입니다
                     size: {

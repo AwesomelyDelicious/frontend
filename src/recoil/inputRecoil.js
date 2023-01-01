@@ -43,6 +43,7 @@ export const ModalStateRecoil = atom({
 export const ClickUserListInfo = atom({
   key: "ClickUserListInfo",
   default: {
+    restaurant_id: "",
     restaurant_name: "",
     x: "",
     y: "",

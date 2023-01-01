@@ -77,7 +77,9 @@ export const handlers = [
   }),
 
   rest.post("/api/v1/restaurant", (req, res, ctx) => {
-    console.log(res.body);
+    console.log("엑시오스");
+    let { body } = res;
+    console.log(body);
     userData.restaurant_list.push(req.body);
     console.log(userData);
     return res(ctx.status(200));

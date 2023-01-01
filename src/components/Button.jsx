@@ -10,11 +10,13 @@ function Button(props) {
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
 
   return (
-    <button className="h-12 w-40 mt-10 bg-buttonBg rounded-full shadow-lg grid place-items-center"
+    <button
+      className="h-12 w-40 mt-10 bg-buttonBg rounded-full shadow-lg grid place-items-center"
       onClick={() => {
+        console.log("click)");
         (async () => {
           await axios
-            .post("/api/v1/authentication", {
+            .post("api/v1/authentication", {
               email: props.inputs.email,
               password: props.inputs.password,
             })
@@ -26,6 +28,7 @@ function Button(props) {
               }
             })
             .catch((error) => {
+              console.log(error);
               alert("일치하지 않습니다.");
               navigate("/");
             });

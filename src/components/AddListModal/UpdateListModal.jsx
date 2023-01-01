@@ -15,22 +15,31 @@ function UpdateListModal(props) {
   const [info, setInfo] = useRecoilState(ClickUserListInfo);
   const [userInfo, setUserInfo] = useRecoilState(UserInfoRecoil);
   const [userId, setUserId] = useRecoilState(UserIdRecoil);
-
   // const [memo, setMemo] = useState(info.memo);
+  console.log(info);
 
   const deleteList = () => {
     (async () => {
-      await deleteUserList(info.id);
-      let a = await getUserInfo(userId);
-      console.log("삭제하고 나서 데이터");
-      console.log(a);
-      setUserInfo({ ...a });
+      try {
+        console.log("ID => ", info.id);
+        console.log(info);
+        await deleteUserList(info.id);
+        let a = await getUserInfo(userId);
+        console.log("삭제하고 나서 데이터");
+        console.log(a);
+        setUserInfo({ ...a });
+      } catch (error) {
+        console.log(error);
+      }
     })();
   };
 
   const updateList = () => {
     (async () => {
-      await updateUserList(info.id, { memo: info.memo, star: info.star });
+      await updateUserList(info.id, {
+        memo: info.memo,
+        star_count: info.star_count,
+      });
       let a = await getUserInfo(userId);
       console.log("new new");
       console.log(a);
@@ -55,22 +64,19 @@ function UpdateListModal(props) {
             {info.restaurant_name}
           </div>
           <div className="grid grid-cols-5 p-2 mb-[10px] bg-lime-500/50 shadow-md">
-            {info.star}
-            <div className="flex justify-center items-center flex-col">
-              <FiStar />
-            </div>
-            <div className="flex justify-center items-center flex-col">
-              <FiStar />
-            </div>
-            <div className="flex justify-center items-center flex-col">
-              <FiStar />
-            </div>
-            <div className="flex justify-center items-center flex-col">
-              <FiStar />
-            </div>
-            <div className="flex justify-center items-center flex-col">
-              <FiStar />
-            </div>
+            {[0, 0, 0, 0, 0].map((v, i) => (
+              <li
+                onClick={() => {
+                  setInfo({ ...info, star_count: i + 1 });
+                }}
+                key={i + 1}
+                className={`${
+                  i + 1 <= info.star_count ? "text-red-500" : false
+                } flex justify-center items-center flex-col`}
+              >
+                <FiStar />
+              </li>
+            ))}
           </div>
           <input
             className="h-[100px] w-[280px] border border-slate-300 text-center"
@@ -85,13 +91,19 @@ function UpdateListModal(props) {
         <div className="flex mt-3">
           <button
             className="mr-2 p-2 rounded-2xl text-white bg-blue-500/75 shadow-md"
-            onClick={updateList}
+            onClick={() => {
+              updateList();
+              setModal(false);
+            }}
           >
             수정
           </button>
           <button
             className="ml-2 p-2 rounded-2xl text-white bg-red-500/75 shadow-md"
-            onClick={deleteList}
+            onClick={() => {
+              deleteList();
+              setModal(false);
+            }}
           >
             삭제
           </button>

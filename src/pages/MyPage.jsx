@@ -10,6 +10,7 @@ function MyPage(props) {
   const [userInfo, setUserInfo] = useRecoilState(UserInfoRecoil);
 
   useEffect(() => {
+    console.log(userId);
     // 1번 방법
     // async function getUserInfo() {
     //   await axios.get(`/api/v1/user?id=${userId}`).then((res) => {
